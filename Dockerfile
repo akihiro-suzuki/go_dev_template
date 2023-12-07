@@ -6,8 +6,6 @@ RUN go install -v github.com/josharian/impl@latest
 RUN go install -v github.com/go-delve/delve/cmd/dlv@latest
 RUN go install -v honnef.co/go/tools/cmd/staticcheck@latest
 RUN go install -v golang.org/x/tools/gopls@latest
-RUN addgroup -g 1000 -S appgroup && adduser -u 1000 -S appuser -G appgroup -s /bin/bash
 COPY go.mod .
 RUN go mod download
 COPY . . 
-USER appuser
